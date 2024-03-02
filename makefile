@@ -10,6 +10,8 @@ modules:
 	@git submodule update --init --recursive .
 	@echo "Submodules ready"
 package: modules
+	@python3 -u scripts/make_lib.py
 	@python3 -u scripts/generate_package.py
 clean:
-	@if [ -e "package.jpk" ]; then rm package.jpk; fi
+	@if [ -e "virtUART.jpk" ]; then rm virtUART.jpk; fi
+	@if [ -e "./files/virtUART.mpy" ]; then rm ./files/virtUART.mpy; fi
