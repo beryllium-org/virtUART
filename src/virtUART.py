@@ -59,10 +59,10 @@ class virtUART:
         except:
             return None
 
-    def write(self, data="") -> int:
+    def write(self, data=b"") -> int:
         lent = len(data)
         if data:
-            _stdout.write(data.decode().replace("\n\r", "\n"))
+            _stdout.write(data.replace(b"\n\r", b"\n"))
             # `console` objects need `\n\r`, `stdout` needs `\n`.
         del data
         return lent
